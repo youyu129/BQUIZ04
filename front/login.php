@@ -1,5 +1,6 @@
 <h2>第一次購物</h2>
 <img src="../icon/0413.jpg" alt="">
+<!-- <?=serialize([1,2,3,4,5]);?> -->
 <h2>會員登入</h2>
 <table class="all">
     <tr>
@@ -46,7 +47,8 @@ function login() {
         if (parseInt(res)) {
             $.get("api/chk_pw.php", {
                 acc: $("#acc").val(),
-                pw: $("#pw").val()
+                pw: $("#pw").val(),
+                table: "Men"
             }, function(res) {
                 if (parseInt(res)) {
                     location.href = "index.php"

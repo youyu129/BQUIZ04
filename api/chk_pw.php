@@ -2,11 +2,15 @@
 
 include_once "db.php";
 
-$chk = $Mem->count($_GET);
+$table=$_GET['table'];
+
+unset($_GET['table']);
+
+$chk = $$table->count($_GET);
 
 if($chk){
     echo 1;
-    $_SESSION['login']=$_GET['acc'];
+    $_SESSION[$table]=$_GET['acc'];
 }else{
     echo 0;
 }
