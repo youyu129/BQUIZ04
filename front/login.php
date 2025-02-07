@@ -44,7 +44,16 @@ function login() {
         console.log('ans', ans);
 
         if (parseInt(res)) {
-            alert("正確")
+            $.get("api/chk_pw.php", {
+                acc: $("#acc").val(),
+                pw: $("#pw").val()
+            }, function(res) {
+                if (parseInt(res)) {
+                    location.href = "index.php"
+                } else {
+                    alert("帳號或密碼錯誤")
+                }
+            })
         } else {
             alert("驗證碼錯誤，請重新輸入")
 
