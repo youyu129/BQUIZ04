@@ -93,10 +93,17 @@ return $this->pdo->query($sql)->fecthColumn();
 }
 
 // math
+
 // arrayToSql
+// 先定義空陣列
+// 取出key和value
+// 組合成字串
 function arrayToSql($array){
     $tmp=[];
-    foreach
+    foreach($array as $key => $value){
+        $tmp[]="`$key`='$value'";
+    }
+    return $tmp;
 }
 
 // fetch_one
@@ -105,7 +112,7 @@ function fetch_one($sql){
 }
 // fetch_all
 function fetch_all(){
-
+    return $this->pdo->query($sql)->fetchALL(PDO::FETCH_ASSOC);
 }
 
 
