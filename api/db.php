@@ -26,19 +26,26 @@ function __construct($table){
 
 // all
 // table後面記得要加空白
-// 如果第一個參數有資料 而且他是陣列 if 
+// 如果第一個參數有資料 而且他是陣列 if 得到這個陣列 當成where條件裡面的資料
 // 如果第一個參數不是空的 但他不是陣列(他是字串) else 把他串在一起
-// 如果第一個參數是空的 不管他
-// 如果第二個參數有資料就直接跑
-// 撈全部資料
+// 如果第一個參數是空的 不管他(不用寫)
+// 如果第二個參數有資料 就當成字串接在後面
+// 撈出全部資料
 function all(...$arg){
     $sql="select * from $this->table ";
-    // 如果有參數
-    if(!empty($arg[0]))
-    // 得到這個陣列 當成where條件裡面的資料
-    $tmp=
+    if(!empty($arg[0]) && is_array($arg[0])){
+        $tmp=$this->arrayToSql($arg[0]);
+        $sql .=" where ".join(" && ",$tmp);
+    }else if(is_string($arg[0])){
+        $sql .=$arg[0];
     }
-    // 如果1是有東西的話 我就當成字串接在後面
+
+    if(!empty($arg[1])){
+        $sql .= $arg[1];
+    }
+    return $this->fetch_all($sql);
+}
+
 
 }
 
@@ -60,6 +67,8 @@ function all($array){
 // 如果成功會回傳1以上 如果失敗會傳0
 
 // del
+// 從這個資料表刪除
+
 // count
 function count(...$array){
 // 計算的動作
