@@ -23,13 +23,32 @@
             $_SESSION['ans']=$a+$b;
             echo $a."+".$b."=";
             ?>
-            <input type="text" name="chk" id="chk">
+            <input type="text" name="ans" id="ans">
         </td>
     </tr>
 </table>
 
 <div class="ct">
-    <button>
+    <button onclick="login()">
         確認
     </button>
 </div>
+
+<script>
+function login() {
+    let ans = $("#ans").val()
+    $.get("./api/chk_ans.php", {
+        ans
+    }, function(res) {
+        console.log('res', res);
+        console.log('ans', ans);
+
+        if (parseInt(res)) {
+            alert("正確")
+        } else {
+            alert("驗證碼錯誤，請重新輸入")
+
+        }
+    })
+}
+</script>
