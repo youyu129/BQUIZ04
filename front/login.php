@@ -48,7 +48,7 @@ function login() {
             $.get("api/chk_pw.php", {
                 acc: $("#acc").val(),
                 pw: $("#pw").val(),
-                table: "Men"
+                table: "Mem"
             }, function(res) {
                 if (parseInt(res)) {
                     location.href = "index.php"
