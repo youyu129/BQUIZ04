@@ -47,15 +47,21 @@ function all(...$arg){
 }
 
 
-}
 
 // find
 // 判斷是數字id 或 陣列
 // 如果他是陣列 把他拚起來
 // 如果他不是陣列 他給的是id值(我們自己定義的) 就寫sql定義id
 // find只要一筆資料
-function all($array){
-
+function find($array){
+    $sql="select * from $this->table ";
+    if(is_array($array)){
+        $tmp=$this->arrayToSql($array);
+        $sql .=" where ".join(" && ",$tmp);
+    }else{
+        $sql .=" where `id`='$array'";
+    }    
+    return $this->fetch_all($sql);
 }
 
 
