@@ -1,4 +1,4 @@
-<h2 class="cy">會員註冊</h2>
+<h2 class="ct">會員註冊</h2>
 
 <table class="all">
     <tr>
@@ -36,7 +36,7 @@
 </table>
 
 <div class="ct">
-    <button>
+    <button onclick="reg()">
         註冊
     </button>
     <button>
@@ -47,6 +47,8 @@
 <script>
     function chkAcc() {
         let acc = $("#acc").val()
+        console.log('acc', acc);
+
         if (acc == 'admin') {
             alert("不可使用admin")
         } else {
@@ -62,21 +64,23 @@
 
     function reg() {
         let data = {
-            name: $("#name"), val(),
-            acc: $("#acc"), val(),
-            pw: $("#pw"), val(),
-            tel: $("#tel"), val(),
-            addr: $("#addr"), val(),
-            email: $("#email"), val(),
+            name: $("#name").val(),
+            acc: $("#acc").val(),
+            pw: $("#pw").val(),
+            tel: $("#tel").val(),
+            addr: $("#addr").val(),
+            email: $("#email").val()
         }
         if (data.acc == 'admin') {
-            alert("不可使用admin")
+            alert("不可使用admin作為帳號")
         } else {
             $.get("api/chk_acc.php", { acc: data.acc }, function (res) {
                 if (parseInt(res) >= 1) {
                     alert("帳號已被使用")
                 } else {
-                    $.post("api/reg.php", date, function (res) {
+                    $.post("api/reg.php", data, function (res) {
+                        console.log('data', data);
+                        console.log('res', res);
                         alert("註冊完成，歡迎加入")
                     })
                 }

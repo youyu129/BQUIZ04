@@ -49,6 +49,14 @@
         <td class="pp">為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~</td>
     </tr>
 </table>
+
+
+<script>
+$(".title").on("click", function() {
+
+})
+</script>
+
 <!-- 最新消息1
 標題
 年終特賣會開跑了
@@ -66,9 +74,3 @@
 
 內容
 為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~ -->
-
-<script>
-$(".title").on("click", function() {
-
-})
-</script>

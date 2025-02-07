@@ -61,7 +61,7 @@ function find($array){
     }else{
         $sql .=" where `id`='$array'";
     }    
-    return $this->fetch_all($sql);
+    return $this->fetch_one($sql);
 }
 
 
@@ -78,7 +78,7 @@ function save($array){
         $id=$array['id'];
         unset($array['id']);
         $tmp=$this->arrayToSql($array);
-        $sql ="update $this->table set ".join(",",$tmp)." where `id`='$id'";
+        $sql="update $this->table set ".join(",",$tmp)." where `id`='$id'";
     }else{
         $keys=join("`,`",array_keys($array));
         $values=join("','",$array);
@@ -104,7 +104,7 @@ function del($array){
 // count
 // 計算的動作
 // 回傳他的值
-function count(...$array){
+function count(...$arg){
 $sql="select count(*) from $this->table ";
     if(!empty($arg[0]) && is_array($arg[0])){
         $tmp=$this->arrayToSql($arg[0]);
@@ -116,7 +116,7 @@ $sql="select count(*) from $this->table ";
     if(!empty($arg[1])){
         $sql .= $arg[1];
     }
-return $this->pdo->query($sql)->fecthColumn();
+return $this->pdo->query($sql)->fetchColumn();
 }
 
 // math
