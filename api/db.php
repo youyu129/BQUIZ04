@@ -98,7 +98,7 @@ function del($array){
     }else{
         $sql .=" where `id`='$array'";
     }    
-    return $this->exec($sql);
+    return $this->pdo->exec($sql);
 }
 
 // count
