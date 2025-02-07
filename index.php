@@ -26,11 +26,7 @@
                 <a href="?do=login">會員登入</a> |
                 <a href="?do=admin">管理登入</a>
             </div>
-            <div>
-                <marquee behavior="" direction="">
-                    情人節特惠活動 &nbsp; 為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~
-                </marquee>
-            </div>
+
         </div>
         <div id="left" class="ct">
             <div style="min-height:400px;">
@@ -44,14 +40,16 @@
         <div id="right">
             <?php
                 $do=$_GET['do']??'main';
-                $file="front/".$do."php";
+                $file="front/".$do.".php";
                 if(file_exists($file)){
                         include $file;
                 }else{
                         include "front/main.php";
                 }
+
                 ?>
         </div>
+
         <div id="bottom" style="line-height:70px;background:url(icon/bot.png); color:#FFF;" class="ct">
             頁尾版權 : </div>
     </div>

@@ -1,3 +1,7 @@
+<marquee>
+    情人節特惠活動 &nbsp;&nbsp;&nbsp;&nbsp; 年終特賣會開跑了
+</marquee>
+
 <h2 class="ct">最新消息</h2>
 
 <div class="ct" style="color:red;">
