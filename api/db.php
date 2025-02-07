@@ -66,11 +66,27 @@ function find($array){
 
 
 // save
+// 如果有id就更新update
+// 其他就更新
 // 把陣列的key值包起來變成一個陣列
 // 用`,``,``,`把欄位名稱串起來
 // 用','把欄位的內容串起來
 // 把key跟value放進去
 // 如果成功會回傳1以上 如果失敗會傳0
+function save($array){
+    if(isset($array['id'])){
+        $id=$array['id'];
+        unset($array['id']);
+        $tmp=$this->arrayToSql($array);
+        $sql ="update $this->table set ".join(",",$tmp)." where `id`='$id'";
+    }else{
+        $keys=join("`,`",array_keys($array));
+        $values=join("','",$array);
+        $sql="insert into $this->table (`{$keys}`) values('{$values }')";
+    }
+    return $this->pdo->exec($sql);
+}
+
 
 // del
 // 從這個資料表刪除
