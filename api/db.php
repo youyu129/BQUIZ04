@@ -86,9 +86,20 @@ function del($array){
 }
 
 // count
-function count(...$array){
 // 計算的動作
 // 回傳他的值
+function count(...$array){
+$sql="select count(*) from $this->table ";
+    if(!empty($arg[0]) && is_array($arg[0])){
+        $tmp=$this->arrayToSql($arg[0]);
+        $sql .=" where ".join(" && ",$tmp);
+    }else if(is_string($arg[0])){
+        $sql .=$arg[0];
+    }
+
+    if(!empty($arg[1])){
+        $sql .= $arg[1];
+    }
 return $this->pdo->query($sql)->fecthColumn();
 }
 
