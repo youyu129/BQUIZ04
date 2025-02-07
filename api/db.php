@@ -153,7 +153,7 @@ function fetch_all(){
 // q
 function q($sql){
     $dsn="mysql:host=localhost;charset=utf8;dbname=db18";
-    $pdo=new PDO($dsn,'root','')
+    $pdo=new PDO($dsn,'root','');
 }
 
 
