@@ -14,7 +14,7 @@
     </tr>
     <tr>
         <td class="tt ct">驗證碼</td>
-        <td class="pp"><input type="text" name="" id=""></td>
+        <td class="pp"><input type="text" name="chk" id="chk"></td>
     </tr>
 </table>
 
