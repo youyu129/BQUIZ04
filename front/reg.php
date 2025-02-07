@@ -59,4 +59,29 @@
             })
         }
     }
+
+    function reg() {
+        let data = {
+            name: $("#name"), val(),
+            acc: $("#acc"), val(),
+            pw: $("#pw"), val(),
+            tel: $("#tel"), val(),
+            addr: $("#addr"), val(),
+            email: $("#email"), val(),
+        }
+        if (data.acc == 'admin') {
+            alert("不可使用admin")
+        } else {
+            $.get("api/chk_acc.php", { acc: data.acc }, function (res) {
+                if (parseInt(res) >= 1) {
+                    alert("帳號已被使用")
+                } else {
+                    $.post("api/reg.php", date, function (res) {
+                        alert("註冊完成，歡迎加入")
+                    })
+                }
+            })
+        }
+    }
+
 </script>
