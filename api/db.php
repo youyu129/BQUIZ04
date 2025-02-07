@@ -74,6 +74,16 @@ function find($array){
 
 // del
 // 從這個資料表刪除
+function del($array){
+    $sql="delete from $this->table ";
+    if(is_array($array)){
+        $tmp=$this->arrayToSql($array);
+        $sql .=" where ".join(" && ",$tmp);
+    }else{
+        $sql .=" where `id`='$array'";
+    }    
+    return $this->exec($sql);
+}
 
 // count
 function count(...$array){
