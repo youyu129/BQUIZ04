@@ -12,7 +12,7 @@
     <tr>
         <td class="tt ct">帳號</td>
         <td class="pp"><input type="text" name="acc" id="acc">
-            <button>檢測帳號</button>
+            <button onclick="chkAcc()">檢測帳號</button>
         </td>
     </tr>
     <tr>
@@ -26,7 +26,7 @@
     <tr>
         <td class="tt ct">住址</td>
         <td class="pp">
-            <input type="text" name="add" id="add">
+            <input type="text" name="addr" id="addr">
         </td>
     </tr>
     <tr>
@@ -43,3 +43,20 @@
         重置
     </button>
 </div>
+
+<script>
+    function chkAcc() {
+        let acc = $("#acc").val()
+        if (acc == 'admin') {
+            alert("不可使用admin")
+        } else {
+            $.get("api/chk_acc.php", { acc }, function (res) {
+                if (parseInt(res) >= 1) {
+                    alert("帳號已被使用")
+                } else {
+                    alert("帳號可以使用")
+                }
+            })
+        }
+    }
+</script>
