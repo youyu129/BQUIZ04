@@ -14,14 +14,14 @@ $userPr=unserialize($row['pr']);
             </td>
         </tr>
         <tr>
-            <td class=" tt ct">密碼
+            <td class="tt ct">密碼
             </td>
             <td class="pp">
                 <input type="password" name='pw' id="pw" value="<?=$row['pw'];?>">
             </td>
         </tr>
         <tr>
-            <td class="tt ct"></td>
+            <td class="tt ct">權限</td>
             <td class="pp">
                 <div>
                     <input type="checkbox" name="pr[]" value="1" <?=(in_array(1,$userPr))?'checked':'';?>>商品分類與管理
@@ -42,6 +42,7 @@ $userPr=unserialize($row['pr']);
         </tr>
     </table>
     <div class="ct">
+        <input type="hidden" name="id" value="<?=$row['id'];?>">
         <input type="submit" value="修改">
         <input type="reset" value="重置">
     </div>
