@@ -26,7 +26,7 @@ foreach($bigs as $big):
     <tr>
         <td class="tt"><?=$big['name'];?></td>
         <td class="tt ct">
-            <button data-id="<?=$big['id'];?>">修改</button>
+            <button data-id="<?=$big['id'];?>" onclick="editType(<?=$big['id'];?>,this)">修改</button>
             <button>刪除</button>
         </td>
     </tr>
@@ -40,7 +40,7 @@ foreach($bigs as $big):
     <tr>
         <td class="pp ct"><?=$mid['name'];?></td>
         <td class="pp ct">
-            <button data-id="<?=$mid['id'];?>">修改</button>
+            <button data-id="<?=$mid['id'];?>" onclick="editType(<?=$big['id'];?>,this)">修改</button>
             <button>刪除</button>
         </td>
     </tr>
@@ -90,6 +90,11 @@ function getBigs() {
     $.get("./api/get_bigs.php", function(bigs) {
         $("#selbig").html(bigs)
     })
+}
+
+function editType(id, dom) {
+    let name = $(dom).parent().prev().text()
+    alert(name)
 }
 </script>
 
