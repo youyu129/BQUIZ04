@@ -1,5 +1,7 @@
 <h2>第一次購物</h2>
-<img src="../icon/0413.jpg" alt="">
+<a href="?do=reg">
+    <img src="../icon/0413.jpg" alt="">
+</a>
 <!-- <?=serialize([1,2,3,4,5]);?> -->
 <h2>會員登入</h2>
 <table class="all">

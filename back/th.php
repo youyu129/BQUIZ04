@@ -26,7 +26,7 @@ foreach($bigs as $big):
     <tr>
         <td class="tt"><?=$big['name'];?></td>
         <td class="tt ct">
-            <button data-id="<?=$big['id'];?>" onclick="editType(<?=$big['id'];?>,this)">修改</button>
+            <button onclick="editType(<?=$big['id'];?>,this)">修改</button>
             <button>刪除</button>
         </td>
     </tr>
@@ -40,7 +40,7 @@ foreach($bigs as $big):
     <tr>
         <td class="pp ct"><?=$mid['name'];?></td>
         <td class="pp ct">
-            <button data-id="<?=$mid['id'];?>" onclick="editType(<?=$mid['id'];?>,this)">修改</button>
+            <button onclick="editType(<?=$mid['id'];?>,this)">修改</button>
             <button>刪除</button>
         </td>
     </tr>
