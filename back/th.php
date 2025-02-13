@@ -40,7 +40,7 @@ foreach($bigs as $big):
     <tr>
         <td class="pp ct"><?=$mid['name'];?></td>
         <td class="pp ct">
-            <button data-id="<?=$mid['id'];?>" onclick="editType(<?=$big['id'];?>,this)">修改</button>
+            <button data-id="<?=$mid['id'];?>" onclick="editType(<?=$mid['id'];?>,this)">修改</button>
             <button>刪除</button>
         </td>
     </tr>
@@ -93,8 +93,19 @@ function getBigs() {
 }
 
 function editType(id, dom) {
-    let name = $(dom).parent().prev().text()
-    alert(name)
+    let typeName = $(dom).parent().prev().text()
+    // alert(name)
+    let name = prompt("請輸入你要修改的分類名稱", typeName)
+    // console.log('result', result);
+    $.post("./api/save_types.php", {
+        id,
+        name
+    }, function(res) {
+        console.log('res', res);
+
+        location.reload()
+    })
+
 }
 </script>
 
