@@ -15,9 +15,9 @@
     <tr class="pp ct">
         <td><?=$row['name'];?></td>
         <td><?=$row['acc'];?></td>
-        <td><?=$row['regdate'];?></td>
+        <td><?=date("Y-m-d",strtotime($row['regdate']));?></td>
         <td>
-            <button onclick="location.href='?do=save_mem&id=<?=$row['id'];?>'">修改</button>
+            <button onclick="location.href='?do=edit_mem&id=<?=$row['id'];?>'">修改</button>
             <button>刪除</button>
         </td>
     </tr>
