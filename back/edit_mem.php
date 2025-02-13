@@ -3,7 +3,7 @@ $row=$Mem->find($_GET['id']);
 ?>
 
 <h2 class="ct">編輯會員資料</h2>
-<form action="" method="post">
+<form action="./api/reg.php" method="post">
     <table class="all">
         <tr>
             <td class="tt ct">
@@ -18,16 +18,16 @@ $row=$Mem->find($_GET['id']);
                 密碼
             </td>
             <td class="pp">
-                <?=str_repeat("*",strlen($row['acc']));?>
+                <?=str_repeat("*",strlen($row['pw']));?>
             </td>
         </tr>
-        <tr>
+        <!-- <tr>
             <td class="tt ct">
                 累積交易額
             </td>
             <td class="pp">
             </td>
-        </tr>
+        </tr> -->
         <tr>
             <td class="tt ct">
                 姓名
@@ -62,7 +62,7 @@ $row=$Mem->find($_GET['id']);
         </tr>
     </table>
     <div class="ct">
-        <input type="hidden" value="<?=$_GET['id'];?>">
+        <input type="hidden" name="id" value="<?=$_GET['id'];?>">
         <input type="submit" value="編輯">
         <input type="reset" value="重置">
         <input type="button" value="取消" onclick="location.href='?do=mem'">
