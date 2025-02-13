@@ -16,7 +16,18 @@
     <tr class="pp ct">
         <td><?=$row['acc'];?></td>
         <td><?=str_repeat('*',strlen($row['pw']));?></td>
-        <td></td>
+        <td>
+            <?php
+            if($row['acc']=='admin'):
+                echo "此帳號為最高權限";
+            else:
+            ?>
+            <button>修改</button>
+            <button>刪除</button>
+            <?php
+            endif;
+            ?>
+        </td>
     </tr>
     <?php
     endforeach;
