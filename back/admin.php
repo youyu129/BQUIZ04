@@ -1,6 +1,9 @@
 <div class="ct">
-    <button type="button">新增管理員</button>
+    <button onclick="location.href='?do=add_admin'">新增管理員</button>
 </div>
+
+<!-- 產生admin權限的方法 直接貼到資料庫 -->
+<!-- <?php echo serialize([1,2,3,4,5]);?> -->
 
 <table class="all">
     <tr class="tt ct">
@@ -22,7 +25,7 @@
                 echo "此帳號為最高權限";
             else:
             ?>
-            <button>修改</button>
+            <button onclick="location.href='?do=edit_admin&id=<?=$row['id'];?>'">修改</button>
             <button>刪除</button>
             <?php
             endif;

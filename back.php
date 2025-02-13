@@ -37,7 +37,7 @@ include_once "api/db.php";
         <div id="right">
             <?php
 			$do=$_GET['do']??'admin';
-			$file="back/".$do."php";
+			$file="back/".$do.".php";
 			if(file_exists($file)){
 					include $file;
 			}else{
