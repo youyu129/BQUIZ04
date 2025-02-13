@@ -101,9 +101,9 @@ function editType(id, dom) {
         id,
         name
     }, function(res) {
-        console.log('res', res);
-
-        location.reload()
+        // console.log('res', res);
+        // location.reload()
+        $(dom).parent().prev().text(name)
     })
 
 }
