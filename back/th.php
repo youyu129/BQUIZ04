@@ -124,20 +124,36 @@ function editType(id, dom) {
         <td class="ct">狀態</td>
         <td class="ct">操作</td>
     </tr>
+    <?php
+    $rows=$Item->all();
+    foreach($rows as $row):
+    ?>
     <tr class="pp">
-        <td class="ct">編號</td>
-        <td class="">商品名稱</td>
-        <td class="ct">庫存量</td>
-        <td class="ct">狀態</td>
+        <td class="ct"><?=$row['no'];?></td>
+        <td class=""><?=$row['name'];?></td>
+        <td class="ct"><?=$row['stock'];?></td>
+        <td class="ct"><?=($row['sh']==1)?'販售中':'已下架';?></td>
         <td class="ct">
             <div>
-                <button>修改</button>
-                <button>刪除</button>
-            </div>
-            <div>
-                <button>上架</button>
-                <button>下架</button>
+                <button onclick="location.href='?do=edit_item&id=<?=$row['id'];?>'">修改</button>
+                <button onclick="del('Item',<?=$row['id'];?>)">刪除</button>
+                <button onclick="sh(<?=$row['id'];?>,1)">上架</button>
+                <button onclick="sh(<?=$row['id'];?>,2)">下架</button>
             </div>
         </td>
     </tr>
+    <?php
+    endforeach;
+    ?>
 </table>
+
+<script>
+function sh(id, type) {
+    $.post("./api/sh.php", {
+        type,
+        id
+    }, function() {
+        location.reload()
+    })
+}
+</script>
