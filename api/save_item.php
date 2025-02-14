@@ -9,6 +9,10 @@ if(isset($_FILES['img']['tmp_name'])){
 
 if(!isset($_POST['id'])){
     $_POST['sh']=1;
+    // 正常要回資料庫比對 若有重複的話要再重新產生
+    $_POST['no']=rand(100000,999999);
 }
 
 $Item->save($_POST);
+
+to("../back.php?do=th");
