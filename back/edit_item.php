@@ -104,11 +104,4 @@ function getTypes(type) {
         }
     })
 }
-
-function typeSetected(big, mid) {
-    getTypes('big')
-    $("#big option[value ='<?=$item['big'];?>']").prop('selected', true)
-}
-// $("#mid"
-// option[value = '<?=$item['mid'];?>']).prop('selected', true)
 </script>
