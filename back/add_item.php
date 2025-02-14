@@ -16,7 +16,7 @@
     <tr>
         <td class="tt ct">商品編號</td>
         <td class="pp ct">
-
+            完成分類後自動分配
         </td>
     </tr>
     <tr>
@@ -35,14 +35,14 @@
     <tr>
         <td class="tt ct">規格</td>
         <td class="pp ct">
-            <input type="text" name="" id="">
+            <input type="text" name="spec" id="spec">
 
         </td>
     </tr>
     <tr>
         <td class="tt ct">庫存量</td>
         <td class="pp ct">
-            <input type="text" name="" id="">
+            <input type="text" name="stock" id="stock">
 
         </td>
     </tr>
@@ -68,3 +68,32 @@
     <input type="reset" value="重置">
     <input type="button" value="返回">
 </div>
+
+<script>
+getTypes('big')
+$("#big").on("change", function() {
+    getTypes('mid')
+})
+
+function getTypes(type) {
+    let big_id = 0
+    if (type == 'mid') {
+        big_id = $("#big").val()
+    }
+
+    $.get("./api/get_types.php", {
+        type,
+        big_id
+    }, function(types) {
+        switch (type) {
+            case 'big':
+                $("#big").html(types)
+                getTypes('mid')
+                break;
+            case 'mid':
+                $("#mid").html(types)
+                break
+        }
+    })
+}
+</script>
