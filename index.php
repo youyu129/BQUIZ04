@@ -56,6 +56,14 @@ include_once "api/db.php";
         </div>
         <div id="left" class="ct">
             <div style="min-height:400px;">
+                <?php
+                $bigs=$Type->all(['big_id'=>0]);
+                foreach($bigs as $big){
+                    echo "<a href='?type={$big['id']}'>";
+                    echo $big['name'];
+                    echo "</a>";
+                }
+                ?>
             </div>
             <span>
                 <div>進站總人數</div>
