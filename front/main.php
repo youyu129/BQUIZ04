@@ -40,7 +40,7 @@ foreach($rows as $row):
             <?=$row['name'];?>
         </div>
         <div class="pp">價錢：<?=$row['price'];?>
-            <a href="http://">
+            <a href="?do=buycart&id=<?=$row['id'];?>&qt=1">
                 <img src="./icon/0402.jpg" alt="" style="float:right;">
             </a>
         </div>
