@@ -68,7 +68,7 @@ include_once "api/db.php";
                         $mids=$Type->all(['big_id'=>$big['id']]);
                         echo "<div class='s'>";
                         foreach($mids as $mid){
-                            echo "<a href='?type={$mid['id']}'>";
+                            echo "<a href='?type={$mid['id']}' style='background:lightblue'>";
                             echo $mid['name'];
                             echo "</a>";
                         }
