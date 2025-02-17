@@ -50,7 +50,7 @@ if(!isset($_SESSION['Mem'])){
             ?>
         </td>
         <td class="ct">
-            <img src="./icon/0415.jpg" alt="">
+            <img src="./icon/0415.jpg" onclick="delCart(<?=$id;?>)">
         </td>
     </tr>
     <?php
@@ -62,3 +62,13 @@ if(!isset($_SESSION['Mem'])){
     <img src="./icon/0411.jpg" onclick="location.href='index.php'">
     <img src="./icon/0412.jpg" onclick="location.href='?do=checkout'">
 </div>
+
+<script>
+function delCart(id) {
+    $.post("./api/delcart.php", {
+        id
+    }, function() {
+        location.reload()
+    })
+}
+</script>
