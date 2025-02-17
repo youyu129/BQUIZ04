@@ -58,6 +58,12 @@ include_once "api/db.php";
             <div style="min-height:400px;">
                 <?php
                 $bigs=$Type->all(['big_id'=>0]);
+                echo "<div class='ww'>";
+                echo "<a href='?type=0'>";
+                echo "全部商品";
+                echo "</a>";
+                echo "</div>";
+
                 foreach($bigs as $big){
                     echo "<div class='ww'>";
                     echo "<a href='?type={$big['id']}'>";
