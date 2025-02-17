@@ -61,7 +61,7 @@ $user=$Mem->find(['acc'=>$_SESSION["Mem"]]);
         <td class="ct">
             <?php
             echo $item['price']*$qt;
-            $sum=$sum+$item['price']*$qt;
+            $sum=$sum+($item['price']*$qt);
             ?>
         </td>
     </tr>
