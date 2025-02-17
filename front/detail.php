@@ -22,5 +22,12 @@ $row=$Item->find($_GET['id']);
 
 <div class="tt ct" style="width:85%;margin:auto;">
     <input type="number" name="qt" id="qt" value="1">
-    <a href="http://"><img src="./icon/0402.jpg" alt=""></a>
+    <img src="./icon/0402.jpg" alt="" onclick="buy()">
 </div>
+
+<script>
+function buy() {
+    let qt = $("#qt").val()
+    location.href = `?do=buycart&id=<?=$_GET['id'];?>&qt=${qt}`
+}
+</script>
