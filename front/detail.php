@@ -20,7 +20,7 @@ $row=$Item->find($_GET['id']);
     </div>
 </div>
 
-<div class="tt ct">
+<div class="tt ct" style="width:85%;margin:auto;">
     <input type="number" name="qt" id="qt" value="1">
     <a href="http://"><img src="./icon/0402.jpg" alt=""></a>
 </div>
