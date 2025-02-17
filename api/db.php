@@ -113,7 +113,7 @@ $sql="select count(*) from $this->table ";
         $sql .=$arg[0];
     }
 
-    if(!empty($arg[1])){
+    if(isset($arg[0]) && !empty($arg[1])){
         $sql .= $arg[1];
     }
 return $this->pdo->query($sql)->fetchColumn();

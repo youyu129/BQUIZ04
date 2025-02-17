@@ -61,6 +61,7 @@ include_once "api/db.php";
                 echo "<div class='ww'>";
                 echo "<a href='?type=0'>";
                 echo "全部商品";
+                echo "(".$Item->count(['sh'=>1]).")";
                 echo "</a>";
                 echo "</div>";
 
@@ -68,6 +69,7 @@ include_once "api/db.php";
                     echo "<div class='ww'>";
                     echo "<a href='?type={$big['id']}'>";
                     echo $big['name'];
+                    echo "({$Item->count(['big'=>$big['id'],'sh'=>1])})";
                     echo "</a>";
 
                     if($Type->count(['big_id'=>$big['id']])>0){
@@ -76,6 +78,7 @@ include_once "api/db.php";
                         foreach($mids as $mid){
                             echo "<a href='?type={$mid['id']}' style='background:lightblue'>";
                             echo $mid['name'];
+                            echo "({$Item->count(['mid'=>$mid['id'],'sh'=>1])})";
                             echo "</a>";
                         }
                         echo "</div>";

@@ -73,7 +73,7 @@ $item=$Item->find($_GET['id']);
         <input type="hidden" name="id" value="<?=$item['id'];?>">
         <input type="submit" value="修改">
         <input type="reset" value="重置">
-        <input type="button" value="返回">
+        <input type="button" value="返回" onclick="window.history.go(-1)">
     </div>
 </form>
 
