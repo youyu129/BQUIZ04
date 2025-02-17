@@ -63,9 +63,18 @@ $user=$Mem->find(['acc'=>$_SESSION["Mem"]]);
             ?>
         </td>
     </tr>
+
     <?php
         endforeach;
         ?>
+
+</table>
+<table class="all">
+    <tr class="tt ct">
+        <td>
+            總價
+        </td>
+    </tr>
 </table>
 <div class="ct">
     <button>確定送出</button>
